@@ -56,6 +56,28 @@ class LinkedList {
         }
     }
 
+    // insert a new node before a specific location in the list
+    insertAt(val, index) {
+        const node = new Node(val);
+        if (!this.head) {
+          this.head = node;
+          this.size++;
+        } else {
+          let currentNode = this.head;
+          let counter = 0;
+          while (currentNode.next) {
+            if (counter === index) {
+              node.next = currentNode.next;
+              currentNode.next = node;
+              this.size++; // increment the size of the list
+              return;
+            }
+            counter++; // counter to keep track of the index
+            currentNode = currentNode.next;
+          }
+        }
+      }
+
 
 }
 
