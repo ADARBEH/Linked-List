@@ -37,6 +37,25 @@ class LinkedList {
         }
     }
 
+    // delete a node from the list
+    deletemiddle() {
+        if (!this.head) {
+            return;
+        } else {
+            let currentNode = this.head;
+            let counter = 0;
+            while (currentNode.next) {
+                if (counter === Math.floor(this.size / 2) - 1) {
+                    currentNode.next = currentNode.next.next;
+                    return;
+                    this.size--; // decrement the size of the list
+                }
+                counter++;
+                currentNode = currentNode.next;
+            }
+        }
+    }
+
 
 }
 
