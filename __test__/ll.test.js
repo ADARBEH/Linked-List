@@ -67,3 +67,22 @@ describe('Delete the middle node', () => {
         expect(ll.head.next.next).toBeNull();
     })
 })
+
+describe('Insert at a specific index', () => {
+    it('insertAt() to an empty LL', () => {
+        const ll = new LinkedList();
+        ll.insertAt('a', 0);
+        expect(ll.head.value).toEqual('a');
+        expect(ll.head.next).toBeNull();
+    })
+    it('insertAt() to a non-empty LL', () => {
+        const ll = new LinkedList();
+        ll.insert('a');
+        ll.insert('b');
+        ll.insertAt('c', 0);
+        expect(ll.head.value).toEqual('b');
+        expect(ll.head.next.value).toEqual('c');
+        expect(ll.head.next.next.value).toEqual('a');
+        expect(ll.head.next.next.next).toBeNull();
+    })
+})
